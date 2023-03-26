@@ -38,4 +38,4 @@ const dropTables = async() => {
 }
 
 
-module.exports(dropTables)
+module.exports = dropTables
