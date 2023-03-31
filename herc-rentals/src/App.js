@@ -1,7 +1,11 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const connection = require('./db_files/db_connection');
+const   sql                 = require('mysql'),
+        dropTables          = require('./src/db_files/drop_tables'),
+        populateTables      = require('./src/db_files/populate_tables'),
+        createTables        = require('./src/db_files/create_tables'),
+        queryTables         = require('./src/db_files/query_tables');
 
 function App() {
   const [data, setData] = useState([]);
