@@ -1,5 +1,4 @@
 import './App.css';
-import 'babel-polyfill';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 const connection = require('./db_files/db_connection');
