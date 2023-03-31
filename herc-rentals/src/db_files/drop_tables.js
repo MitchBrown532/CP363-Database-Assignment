@@ -1,8 +1,10 @@
+const sql = require('mysql');
+const connection = require('./db_connection.js');
+
 const dropTables = async() => {
     try{
-        let pool = await sql.connect(connection);
-        let db = pool.request()
-        .query(`
+        let pool = await sql.createConnection(connection);
+        let db = pool.query(`
             DROP TABLE IF EXISTS Customer CASCADE;
             DROP TABLE IF EXISTS CustomerEmail;
             DROP TABLE IF EXISTS CustomerPhone;
@@ -38,4 +40,4 @@ const dropTables = async() => {
 }
 
 
-module.exports = dropTables
+module.exports = {dropTables}

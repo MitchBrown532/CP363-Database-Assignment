@@ -1,8 +1,10 @@
+const sql = require('mysql');
+const connection = require('./db_connection.js');
+
 const populateTables = async() => {
     try{
-        let pool = await sql.connect(connection);
-        let db = pool.request()
-        .query(`
+        let pool = await sql.createConnection(connection);
+        let db = pool.query(`
             INSERT INTO Customer (name, address) 
             VALUES  ("John Doe", "123 Main St, Anytown USA"),
                     ("Sarah Johnson", "456 Park Ave, New York City, USA"),
@@ -169,5 +171,5 @@ const populateTables = async() => {
 }
 
 
-module.exports = populateTables
+module.exports = {populateTables}
 

@@ -1,8 +1,10 @@
+const sql = require('mysql');
+const connection = require('./db_connection.js');
+
 const createTables = async() => {
     try{
-        let pool = await sql.connect(connection);
-        let db = pool.request()
-        .query(`
+        let pool = await sql.createConnection(connection);
+        let db = pool.query(`
           CREATE TABLE IF NOT EXISTS Customer (
             idCustomer INT(11) NOT NULL AUTO_INCREMENT,
             name VARCHAR(45) NOT NULL,
@@ -329,5 +331,5 @@ const createTables = async() => {
 }
 
 
-module.exports = createTables
+module.exports = {createTables}
 

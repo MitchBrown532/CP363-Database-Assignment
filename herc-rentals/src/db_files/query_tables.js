@@ -1,8 +1,10 @@
+const sql = require('mysql');
+const connection = require('./db_connection.js');
+
 const queryTables = async() => {
     try{
-        let pool = await sql.connect(connection);
-        let db = pool.request()
-        .query(`
+        let pool = await sql.createConnection(connection);
+        let db = pool.query(`
             //Query 1: Show all customers, ordered by their names.
                 SELECT * 
                 FROM Customer 
@@ -69,4 +71,4 @@ const queryTables = async() => {
 }
 
 
-module.exports = queryTables
+module.exports = {queryTables}

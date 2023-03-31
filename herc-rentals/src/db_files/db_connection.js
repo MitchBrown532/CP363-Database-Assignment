@@ -1,12 +1,11 @@
-const mysql = require('mysql');
+const sql = require('mysql');
 
 // Create connection object
-const connection = mysql.createConnection({
+const connection = sql.createConnection({
   host: "cp363-db.cfoq5srjjul5.us-east-2.rds.amazonaws.com",
   user: "admin",
   password: "cp363_db",
   database: "herc_rentals",
-  
 });
 
 // Connect, error if failed
